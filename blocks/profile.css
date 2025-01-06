@@ -74,7 +74,7 @@
   gap: 8px;
   padding: 18px 32px;
   border-radius: 8px;
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
@@ -123,6 +123,6 @@
 
   .profile__add-button {
     margin: 0;
-    width: 100%;
+    width: calc(100% - 64px);
   }
 }

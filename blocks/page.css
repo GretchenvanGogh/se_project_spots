@@ -7,5 +7,11 @@
 .page__section {
   max-width: 1280px;
   margin: 0 auto;
-  min-width: 320px;
+}
+
+@media screen and (max-width: 627px) {
+  .page__section {
+    width: 100%; /* Use full width */
+    padding-right: 0;
+  }
 }
