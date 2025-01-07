@@ -17,3 +17,7 @@ Spots is an interactive social media web application where users can add and rem
 This webpage is deployed to GitHub Pages
 
 -Deployment Link: https://gretchenvangogh.github.io/se_project_spots/
+
+## Video
+
+-Video Link: https://drive.google.com/file/d/1hluvbxe1jOU7jZjn3UXb_3oEgpmBwbyS/view?usp=drive_link
