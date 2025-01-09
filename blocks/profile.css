@@ -38,6 +38,7 @@
 .profile__description {
   margin: 0;
   line-height: 1;
+  font-weight: 500;
   color: #212121b2;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -60,6 +61,7 @@
   border: none;
   background-color: #fcf5e5;
   color: #212121;
+  font-weight: 500;
 }
 
 .profile__edit-button:hover {
@@ -119,12 +121,10 @@
     margin: 0 0 32px;
     align-self: center;
     max-width: 288px;
-    font-weight: 500;
   }
 
   .profile__edit-button {
     align-self: center;
-    font-weight: 500;
   }
 
   .profile__add-button {
