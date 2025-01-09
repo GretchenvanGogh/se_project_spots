@@ -119,10 +119,12 @@
     margin: 0 0 32px;
     align-self: center;
     max-width: 288px;
+    font-weight: 500;
   }
 
   .profile__edit-button {
     align-self: center;
+    font-weight: 500;
   }
 
   .profile__add-button {
