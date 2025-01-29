@@ -10,6 +10,7 @@ Spots is an interactive social media web application where users can add and rem
 
 - HTML
 - CSS
+- JavaScript
 - Responsive Design
 
 ## Deployment
