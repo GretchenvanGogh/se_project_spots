@@ -39,6 +39,14 @@
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
+            <template id="card-template">
+              <li class="card">
+                <img src="" alt="" class="card__image" />
+                <div class="card__content">
+                  <h2 class="card__title"></h2>
+                  <button class="card__like-button" type="button"></button>
+                </div></li
+            ></template>
             <li class="card">
               <img
                 src="images/1-photo-by-moritz-feldmann-from-pexels.jpg"
@@ -118,21 +126,21 @@
           <button class="modal__close-button" type="submit"></button>
           <h2 class="modal__title">Edit Profile</h2>
           <form class="modal__form" name="edit-profile">
-            <label class="modal__label" for="name"
+            <label class="modal__label" for="profile-name-input"
               >Name
               <input
                 class="modal__input"
                 type="text"
-                id="name"
+                id="profile-name-input"
                 placeholder="Type your name"
               />
             </label>
-            <label for="description" class="modal__label">
+            <label for="profile-description-input" class="modal__label">
               Description
               <input
                 class="modal__input"
                 type="text"
-                id="description"
+                id="profile-description-input"
                 placeholder="Describe yourself"
               />
             </label>
@@ -140,7 +148,7 @@
           </form>
         </div>
       </div>
-      <scripts src="scripts/index.js" defer></scripts>
+      <script src="scripts/index.js" defer></script>
     </div>
   </body>
 </html>
