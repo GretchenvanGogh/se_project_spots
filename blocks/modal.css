@@ -36,6 +36,11 @@
   border: none;
   padding: 0;
   background-color: #fff;
+  cursor: pointer;
+}
+
+.modal__close-button:hover {
+  background-image: url(../images/Close_Icon_hover-min.png);
 }
 
 .modal__title {
@@ -50,9 +55,11 @@
   flex-direction: column;
   gap: 8px;
   margin-bottom: 32px;
+  font-family: Poppins, Arial, sans-serif;
   font-size: 16px;
   line-height: 17.6px;
   font-weight: 500;
+  color: rgba(33, 33, 33, 0.7);
 }
 
 .modal__input {
@@ -62,6 +69,12 @@
   font-size: 20px;
   line-height: 1;
   font-weight: 500;
+  border-color: rgba(33, 33, 33, 0.4);
+}
+
+.modal__input:hover {
+  cursor: pointer;
+  border-color: #212121;
 }
 
 .modal__submit-button {
@@ -73,6 +86,7 @@
   font-size: 16px;
   line-height: 1;
   font-weight: 500;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
