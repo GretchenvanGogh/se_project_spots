@@ -23,6 +23,10 @@ const initialCards = [
     name: "Mountain House",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
+  {
+    name: "Golden Gate Bridge",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
 ];
 
 const profileEditButton = document.querySelector(".profile__edit-button");
@@ -42,6 +46,14 @@ const cardForm = cardModal.querySelector(".modal__form");
 const cardModalCloseButton = cardModal.querySelector(".modal__close-button");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
+
+const previewModal = document.querySelector("#preview-modal");
+const previewModalImageElement = previewModal.querySelector(".modal__image");
+const previewModalCaptionElement =
+  previewModal.querySelector(".modal__caption");
+const previewCloseButton = previewModal.querySelector(
+  ".modal__close_type_preview"
+);
 
 const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".cards__list");
@@ -65,9 +77,13 @@ function getCardElement(data) {
   cardDeleteButton.addEventListener("click", () => {
     cardDeleteButton.closest(".card").remove();
   });
+  cardImageElement.addEventListener("click", () => {
+    openModal(previewModal);
+    previewModalImageElement.src = data.link;
+    previewModalImageElement.alt = data.name;
+    previewModalCaptionElement.textContent = data.name;
+  });
 
-  //set the listener on delete button
-  //the handler should remove the card from the DOM
   return cardElement;
 }
 
@@ -108,6 +124,10 @@ cardModalButton.addEventListener("click", () => {
 });
 cardModalCloseButton.addEventListener("click", () => {
   closeModal(cardModal);
+});
+
+previewCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);

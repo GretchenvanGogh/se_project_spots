@@ -57,7 +57,7 @@
         <p class="footer__copyright">2025 &copy; Spots</p>
       </footer>
       <div class="modal" id="edit-modal">
-        <div class="modal__container">
+        <div class="modal__content">
           <button class="modal__close-button" type="button"></button>
           <h2 class="modal__title">Edit Profile</h2>
           <form class="modal__form" name="edit-profile">
@@ -85,7 +85,7 @@
       </div>
 
       <div class="modal" id="add-card-modal">
-        <div class="modal__container">
+        <div class="modal__content">
           <button class="modal__close-button" type="button"></button>
           <h2 class="modal__title">New Post</h2>
           <form class="modal__form" id="add-card-form">
@@ -111,6 +111,13 @@
             </label>
             <button class="modal__submit-button" type="submit">Save</button>
           </form>
+        </div>
+      </div>
+      <div class="modal" id="preview-modal">
+        <div class="modal__content_type_preview">
+          <button class="modal__close_type_preview" type="button"></button>
+          <img class="modal__image" src="" alt="" />
+          <p class="modal__caption"></p>
         </div>
       </div>
       <script src="scripts/index.js" defer></script>
