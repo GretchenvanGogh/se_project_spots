@@ -75,7 +75,7 @@ function getCardElement(data) {
     cardLikeButton.classList.toggle("card__like-button_liked");
   });
   cardDeleteButton.addEventListener("click", () => {
-    cardDeleteButton.closest(".card").remove();
+    cardElement.remove();
   });
   cardImageElement.addEventListener("click", () => {
     openModal(previewModal);
@@ -107,7 +107,8 @@ function handleAddCardSubmit(event) {
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardEl = getCardElement(inputValues);
   cardList.prepend(cardEl);
-  closeModal(cardForm);
+  event.target.reset();
+  closeModal(cardModal);
 }
 
 profileEditButton.addEventListener("click", () => {
