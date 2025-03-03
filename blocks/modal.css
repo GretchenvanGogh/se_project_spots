@@ -30,7 +30,7 @@
   border-radius: 8px;
 }
 
-.modal_preview-container {
+.modal__preview-container {
   padding: 0;
   position: relative;
 }
@@ -64,7 +64,7 @@
   position: absolute;
   background-image: url(../images/CloseIconLight.svg);
   background-color: transparent;
-  top: 81px;
+  top: 0px;
   right: -52.5px;
   opacity: 1;
   width: 40px;
