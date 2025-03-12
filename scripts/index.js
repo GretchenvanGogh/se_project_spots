@@ -95,11 +95,13 @@ function getCardElement(data) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscapeKey);
+  document.addEventListener("click", handleOverlayClick);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscapeKey);
+  document.removeEventListener("click", handleOverlayClick);
 }
 
 function handleEditFormSubmit(event) {
@@ -161,9 +163,8 @@ function handleEscapeKey(evt) {
   }
 }
 
-document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("modal")) {
-    const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal);
+function handleOverlayClick(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
   }
-});
+}

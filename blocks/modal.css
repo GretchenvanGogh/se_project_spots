@@ -117,7 +117,7 @@
   border-color: #212121;
 }
 
-.modal__error_visible {
+.modal__error_state_visible {
   display: block;
   color: #ff0000;
   font-size: 16px;
