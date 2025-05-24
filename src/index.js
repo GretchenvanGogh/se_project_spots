@@ -1,4 +1,10 @@
 //TODO - pass settings object to validation functions that are called here
+import "./pages/index.css";
+import stepsSrc from "./images/steps.png";
+const stepsImage = document.getElementById("image-steps");
+stepsImage.src = stepsSrc;
+
+import { settings, enableValidation } from "./scripts/validation.js";
 
 const initialCards = [
   {
@@ -168,3 +174,4 @@ function handleOverlayClick(evt) {
     closeModal(evt.target);
   }
 }
+enableValidation(settings);
