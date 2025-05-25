@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development",
-    "deploy": "gh-pages -d dist",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/GretchenvanGogh/se_project_spots/issues"
   },
-  "homepage": "https://github.com/GretchenvanGogh/se_project_spots#readme",
+  "homepage": "https://github.com/GretchenvanGogh/se_project_spots",
   "devDependencies": {
     "@babel/core": "7.18.9",
     "@babel/preset-env": "7.18.9",
