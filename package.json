@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/GretchenvanGogh/se_project_spots/issues"
   },
-  "homepage": "https://github.com/GretchenvanGogh/se_project_spots",
+  "homepage": "https://gretchenvangogh.github.io/se_project_spots",
   "devDependencies": {
     "@babel/core": "7.18.9",
     "@babel/preset-env": "7.18.9",
