@@ -1,10 +1,11 @@
 //TODO - pass settings object to validation functions that are called here
 import "./pages/index.css";
-import stepsSrc from "./images/steps.png";
-const stepsImage = document.getElementById("image-steps");
-stepsImage.src = stepsSrc;
+// import stepsSrc from "./images/steps.png";
+// const stepsImage = document.getElementById("image-steps");
+// stepsImage.src = stepsSrc;
 
 import { settings, enableValidation } from "./scripts/validation.js";
+import Api from "../utils/Api.js";
 
 const initialCards = [
   {
@@ -36,6 +37,23 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
   },
 ];
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "e652845a-7220-4a96-9ecf-debf34d711a9",
+    "Content-Type": "application/json",
+  },
+});
+
+api
+  .getInitialCards()
+  .then((result) => {
+    // process the result
+  })
+  .catch((err) => {
+    console.error(err); // log the error to the console
+  });
 
 const allModals = document.querySelectorAll(".modal");
 
