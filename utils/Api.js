@@ -5,8 +5,7 @@ class Api {
   }
 
   getUserInfo() {
-    return fetch(`${this._baseUrl}/cards`, {
-      //change base url
+    return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {
@@ -17,8 +16,7 @@ class Api {
   }
 
   getAppInfo() {
-    //call getUserInfo() in this array
-    return Promise.all([this.getInitialCards()]);
+    return Promise.all([this.getInitialCards(), this.getUserInfo()]);
   }
 
   getInitialCards() {
@@ -28,7 +26,6 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      // if the server returns an error, reject the promise
       return Promise.reject(`Error: ${res.status}`);
     });
   }

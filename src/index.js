@@ -1,6 +1,10 @@
 import "./pages/index.css";
 
-import { settings, enableValidation } from "./scripts/validation.js";
+import {
+  settings,
+  enableValidation,
+  resetValidation,
+} from "./scripts/validation.js";
 import Api from "../utils/Api.js";
 
 const initialCards = [
@@ -41,18 +45,18 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-//Destructure the second item in the callback of .then()
+
 api
   .getAppInfo()
-  .then(([cards]) => {
-    //console.log(cards);
+  .then(([cards, userInfo]) => {
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardList.append(cardElement);
     });
     //Handle the user's information
-    //set the src of the avatar image
-    //set textContent of both the text elements
+    profileImage.src = userInfo.avatar;
+    profileName.textContent = userInfo.name;
+    profileDescription.textContent = userInfo.about;
   })
   .catch(console.error);
 
@@ -61,6 +65,7 @@ const allModals = document.querySelectorAll(".modal");
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
+const profileImage = document.querySelector(".profile__avatar");
 const cardModalButton = document.querySelector(".profile__add-button");
 
 const editModal = document.querySelector("#edit-modal");
@@ -131,9 +136,17 @@ function closeModal(modal) {
 
 function handleEditFormSubmit(event) {
   event.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
+  api
+    .editUserInfo({
+      name: editModalNameInput.value,
+      about: editModalDescriptionInput.value,
+    })
+    .then((data) => {
+      profileName.textContent = data.name;
+      profileDescription.textContent = data.about;
+      closeModal(editModal);
+    })
+    .catch(console.error);
 }
 
 function handleAddCardSubmit(event) {
