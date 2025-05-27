@@ -1,8 +1,4 @@
-//TODO - pass settings object to validation functions that are called here
 import "./pages/index.css";
-// import stepsSrc from "./images/steps.png";
-// const stepsImage = document.getElementById("image-steps");
-// stepsImage.src = stepsSrc;
 
 import { settings, enableValidation } from "./scripts/validation.js";
 import Api from "../utils/Api.js";
@@ -45,15 +41,20 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-
+//Destructure the second item in the callback of .then()
 api
-  .getInitialCards()
-  .then((result) => {
-    // process the result
+  .getAppInfo()
+  .then(([cards]) => {
+    //console.log(cards);
+    cards.forEach((item) => {
+      const cardElement = getCardElement(item);
+      cardList.append(cardElement);
+    });
+    //Handle the user's information
+    //set the src of the avatar image
+    //set textContent of both the text elements
   })
-  .catch((err) => {
-    console.error(err); // log the error to the console
-  });
+  .catch(console.error);
 
 const allModals = document.querySelectorAll(".modal");
 
@@ -172,11 +173,6 @@ previewCloseButton.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
-
-initialCards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardList.append(cardElement);
-});
 
 function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
