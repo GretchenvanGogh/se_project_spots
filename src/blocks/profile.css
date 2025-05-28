@@ -35,6 +35,8 @@
   visibility: visible;
 }
 
+/* TODO - finish avatar button styles */
+
 .profile__column {
   display: flex;
   flex-direction: column;
@@ -126,6 +128,16 @@
     height: 80px;
     margin-bottom: 12px;
   }
+
+  .profile__avatar-btn {
+    visibility: visible;
+  }
+
+  .profile__avatar-btn::after {
+    content: "";
+  }
+
+  /* TODO - finish mobile avatar button styles */
 
   .profile__column {
     margin-bottom: 20px;

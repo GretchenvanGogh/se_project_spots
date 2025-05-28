@@ -170,5 +170,37 @@
         </div>
       </div>
     </div>
+    <div class="modal" id="avatar-modal">
+      <div class="modal__content">
+        <button class="modal__close-button" type="button"></button>
+        <h2 class="modal__title">Edit Avatar</h2>
+        <form class="modal__form" name="edit-avatar" novalidate>
+          <label class="modal__label" for="profile-avatar-input"
+            >Avatar
+            <input
+              class="modal__input"
+              type="text"
+              id="profile-avatar-input"
+              name="avatar"
+              placeholder="Avatar goes here"
+              minlength="3"
+              maxlength="200"
+              required
+            />
+            <span
+              class="modal__error modal__error_state_visible"
+              id="profile-avatar-input-error"
+            ></span>
+          </label>
+        
+            <span
+              class="modal__error modal__error_state_visible"
+              id="profile-description-input-error"
+            ></span>
+          </label>
+          <button class="modal__submit-button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
