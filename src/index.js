@@ -60,6 +60,12 @@ api
     profileDescription.textContent = userInfo.about;
   })
   .catch(console.error);
+const submitButtonSelector = document.querySelectorAll(
+  ".modal__submit-button, .modal__delete-button"
+);
+submitButtonSelector.forEach((button) => {
+  button.dataset.originalText = button.textContent;
+});
 
 const allModals = document.querySelectorAll(".modal");
 

@@ -1,15 +1,8 @@
-export function setButtonText(
-  btn,
-  isLoading,
-  //defaultText = "Save",
-  loadingText = "Saving..."
-) {
-  const defaultText = btn.textContent;
+export function setButtonText(btn, isLoading, loadingText = "Saving...") {
+  const defaultText = btn.dataset.originalText;
   if (isLoading) {
-    //set loading text
     btn.textContent = loadingText;
   } else {
-    //set not loading text
     btn.textContent = defaultText;
   }
 }
