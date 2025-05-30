@@ -95,7 +95,10 @@ const avatarLinkInput = avatarModal.querySelector("#profile-avatar-input");
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form");
 const deleteModalCancelButton = deleteModal.querySelector(
-  ".modal__close-button"
+  ".modal__cancel-button"
+);
+const deleteModalCloseButton = deleteModal.querySelector(
+  ".modal__close-button_type_delete"
 );
 
 const previewModal = document.querySelector("#preview-modal");
@@ -250,6 +253,10 @@ avatarModalCloseButton.addEventListener("click", () => {
 });
 
 deleteModalCancelButton.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
+deleteModalCloseButton.addEventListener("click", () => {
   closeModal(deleteModal);
 });
 
