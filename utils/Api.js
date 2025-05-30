@@ -30,7 +30,6 @@ class Api {
     });
   }
 
-  //TODO - implement POST/cards
   postCards(data) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",

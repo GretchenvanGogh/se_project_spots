@@ -1,5 +1,5 @@
 import "./pages/index.css";
-
+import { setButtonText } from "./utils/helpers.js";
 import {
   settings,
   enableValidation,
@@ -185,6 +185,10 @@ function closeModal(modal) {
 
 function handleEditFormSubmit(event) {
   event.preventDefault();
+  const submitButton = event.submitter;
+  //submitButton.textContent = "Saving...";
+  setButtonText(submitButton, true);
+
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -195,11 +199,20 @@ function handleEditFormSubmit(event) {
       profileDescription.textContent = data.about;
       closeModal(editModal);
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error();
+    })
+    .finally(() => {
+      setButtonText(submitButton, false);
+    });
 }
+
+//TODO - implement loading text for all other form submission
 
 function handleAddCardSubmit(event) {
   event.preventDefault();
+  const submitButton = event.submitter;
+  setButtonText(submitButton, true);
   api
     .postCards({
       name: cardNameInput.value,
@@ -212,29 +225,48 @@ function handleAddCardSubmit(event) {
       disableButton(cardSubmitButton, settings);
       closeModal(cardModal);
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error();
+    })
+    .finally(() => {
+      setButtonText(submitButton, false);
+    });
 }
 
 function handleAvatarSubmit(event) {
   event.preventDefault();
+  const submitButton = event.submitter;
+  setButtonText(submitButton, true);
   api
     .editAvatarInfo(avatarLinkInput.value)
     .then((data) => {
       profileImage.src = data.avatar;
       closeModal(avatarModal);
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error();
+    })
+    .finally(() => {
+      setButtonText(submitButton, false);
+    });
 }
 
-function handleDeleteSubmit(evt) {
-  evt.preventDefault();
+function handleDeleteSubmit(event) {
+  event.preventDefault();
+  const submitButton = event.submitter;
+  setButtonText(submitButton, true, "Deleting...");
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error();
+    })
+    .finally(() => {
+      setButtonText(submitButton, false);
+    });
 }
 
 profileEditButton.addEventListener("click", () => {
