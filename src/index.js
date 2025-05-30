@@ -120,6 +120,22 @@ function handleDeleteCard(cardElement, cardId) {
   openModal(deleteModal);
 }
 
+function handleCardLike(evt, id) {
+  let isLiked;
+  if (evt.target.classList.contains("card__like-button_liked")) {
+    isLiked = true;
+  } else {
+    isLiked = false;
+  }
+
+  api
+    .changeLikeStatus(id, isLiked)
+    .then((data) => {
+      evt.target.classList.toggle("card__like-button_liked");
+    })
+    .catch(console.error);
+}
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -129,21 +145,21 @@ function getCardElement(data) {
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
 
+  if (data.isLiked) {
+    cardLikeButton.classList.add("card__like-button_liked");
+  }
+
   cardNameElement.textContent = data.name;
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
 
-  cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-button_liked");
-  });
+  cardLikeButton.addEventListener("click", (evt) =>
+    handleCardLike(evt, data._id)
+  );
 
-  //TODO
-  cardDeleteButton.addEventListener("click", (evt) => {
-    console.log(data._id);
+  cardDeleteButton.addEventListener("click", () => {
     handleDeleteCard(cardElement, data._id);
   });
-  //openModal(deleteModal);
-  // cardElement.remove();
 
   cardImageElement.addEventListener("click", () => {
     openModal(previewModal);
@@ -215,9 +231,7 @@ function handleDeleteSubmit(evt) {
   api
     .deleteCard(selectedCardId)
     .then(() => {
-      // TODO - remove card from the DOM
       selectedCard.remove();
-      //close the modal
       closeModal(deleteModal);
     })
     .catch(console.error);
