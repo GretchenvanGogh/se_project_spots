@@ -41,8 +41,6 @@
   z-index: 2;
 }
 
-/* TODO - finish avatar button styles */
-
 .profile__column {
   display: flex;
   flex-direction: column;
@@ -142,8 +140,6 @@
   .profile__avatar-btn::after {
     content: "";
   }
-
-  /* TODO - finish mobile avatar button styles */
 
   .profile__column {
     margin-bottom: 20px;

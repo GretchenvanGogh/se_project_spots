@@ -213,8 +213,6 @@ function handleEditFormSubmit(event) {
     });
 }
 
-//TODO - implement loading text for all other form submission
-
 function handleAddCardSubmit(event) {
   event.preventDefault();
   const submitButton = event.submitter;
