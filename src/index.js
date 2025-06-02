@@ -60,10 +60,10 @@ api
     profileDescription.textContent = userInfo.about;
   })
   .catch(console.error);
-const submitButtonSelector = document.querySelectorAll(
+const submitButtons = document.querySelectorAll(
   ".modal__submit-button, .modal__delete-button"
 );
-submitButtonSelector.forEach((button) => {
+submitButtons.forEach((button) => {
   button.dataset.originalText = button.textContent;
 });
 

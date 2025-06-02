@@ -131,10 +131,14 @@
     width: 80px;
     height: 80px;
     margin-bottom: 12px;
+    z-index: 1;
   }
 
-  .profile__avatar-btn {
-    visibility: visible;
+  .profile__avatar-container {
+    margin-right: 0;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
   }
 
   .profile__avatar-btn::after {

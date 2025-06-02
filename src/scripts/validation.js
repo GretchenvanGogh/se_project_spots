@@ -1,7 +1,7 @@
 export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit-button",
+  submitButtons: ".modal__submit-button",
   inactiveButtonClass: "modal__submit-button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_state_visible",
@@ -55,7 +55,7 @@ export const resetValidation = (formEl, inputList, config) => {
 
 const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
-  const buttonElement = formEl.querySelector(config.submitButtonSelector);
+  const buttonElement = formEl.querySelector(config.submitButtons);
 
   toggleButtonState(inputList, buttonElement, config);
 
